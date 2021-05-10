@@ -14,7 +14,7 @@ app.get("/api", (req, res) => {
 
 app.get('*', (req, res)=>{
   console.log("getting here");
-  return res.sendFile(path.join(__dirname,"/client/build", "index.html"))
+  return res.sendFile(path.join(__dirname,"client/build", "index.html"))
 })
 
 const PORT = process.env.PORT || 3001;
