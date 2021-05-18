@@ -66,7 +66,7 @@ passport.use(new LocalStrategy({
       // if user doesn't exist
       if (!user) { return done(null, false, { message: 'User not found.' }); }
 
-      bcrypt.compare(password, hash, function(err, resp){
+      bcrypt.compare(password, user.password, function(err, resp){
           if (result === true) {
             return done(null, user);
           } else {
@@ -95,13 +95,6 @@ app.get("/api/blog", function(req, res){
       res.json({message: posts});
     }
   });
-});
-
-app.get("/genhash", function(req, res){
-  bcrypt.hash(req.body.password, 10, function(err, hash){
-    console.log("req body password: ", req.body.password)
-    console.log("hash: ", hash)
-  })
 });
 
 app.get("/api/blog/:slug", function(req, res){
