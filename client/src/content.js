@@ -4,9 +4,9 @@ import SocialIcons from "./SocialIcons.js"
 
 function Content(props){
 
-  const homeStr=`Placeholder home page text`
+  const homeStr=`Hi! I'm Harsha. This is my website.`
 
-  const aboutMeStr = `Placeholder about me text`
+  const aboutMeStr = `I am a person.`
 
 
   return (
