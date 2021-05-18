@@ -17,7 +17,7 @@ function AllPosts(props) {
   return (
       <div>
         {(data) ? data.map((post) => (
-          <div key={post._id} className="cards lg:ml-5 ">
+          <div key={post._id} className="cards">
             <BlogCard
               key={post._id}
               id={post._id}

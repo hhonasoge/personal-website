@@ -6,7 +6,7 @@ function NavBar(props){
   return (
     <div>
       <ul className="flex justify-end font-roboto-slab p-4 pr-12 mb-4 bg-blue-100 rounded">
-        <li className="mx-10">
+        <li className="mx-10 hidden md:block">
           <Link className="text-indigo-500 font-bold hover:text-blue-900 text-lg" to="/">harshahonasoge.com</Link>
         </li>
         <li className="ml-auto pr-5">
