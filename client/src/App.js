@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react"
+import NavBar from "./navbar.js"
+import Content from "./content.js"
+import BlogHome from "./BlogHome.js"
+import MyEditor from "./Compose.js"
+import Login from "./login.js"
+import {Route, Switch } from "react-router-dom";
+
 
 function App() {
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-      </header>
-    </div>
+    <div>
+      <div>
+        <NavBar/>
+        <Switch>
+          <Route path="/" component={() => (<Content path="home"/>)} exact/>
+          <Route path="/home" component={() => (<Content path="home"/>)} />
+          <Route path="/about" component={() => (<Content path="about"/>)} />
+          <Route path="/blog" component={() => (<BlogHome path="blog"/>)} />
+          <Route path="/compose" component={() => (<MyEditor path="compose"/>)} />
+          <Route path="/login" component={() => (<Login path="login"/>)} />
+          <Route component={() => (<Content path="/home"/>)} exact/>
+        </Switch>
+      </div>
+      </div>
   );
 }
 
