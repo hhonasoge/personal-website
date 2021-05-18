@@ -85,7 +85,7 @@ function MyEditor(props) {
           <button className="text-black m-auto rounded-full p-2 bg-blue-200 hover:bg-blue-300 mb-2" type="submit" name="button" onClick={handleSubmit}>Publish</button>
         </div>
       </div>
-     : <p className="text-center">Please <a href="/api/login" style={{textDecoration: "underline"}}>log in</a> to compose a blog post</p>)
+     : <p className="text-center">Please <a href="/login" style={{textDecoration: "underline"}}>log in</a> to compose a blog post</p>)
 }
 
 

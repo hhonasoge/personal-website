@@ -11,7 +11,7 @@ function Login(){
         <SocialIcons/>
        </div>
        <div className="text-blue-200 font-roboto pt-10 pl-20 md:pr-0 pr-4 md:col-span-3 col-span-4">
-       <form action="/login" method="POST">
+       <form action="/api/login" method="POST">
          <div className="form-group m-2">
            <label htmlFor="email" className="pr-2">Email</label>
            <input type="email" className="form-control text-black rounded-full pl-2" name="email"/>

@@ -6,6 +6,7 @@ const session = require('express-session');
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require('mongoose-findorcreate');
+const bcrypt = require('bcrypt');
 const LocalStrategy = require("passport-local")
 require('dotenv').config();
 
@@ -64,12 +65,14 @@ passport.use(new LocalStrategy({
       }
       // if user doesn't exist
       if (!user) { return done(null, false, { message: 'User not found.' }); }
-      // if the password isn't correct
-      if (user.password !== password) {
-        return done(null, false, {
-        message: 'Invalid password.' });
-      }
-      return done(null, user);
+
+      bcrypt.compare(password, hash, function(err, resp){
+          if (result === true) {
+            return done(null, user);
+          } else {
+            return done(null, false, {message: 'Invalid password.' });
+          }
+      })
     });
   }
 ));
@@ -92,6 +95,13 @@ app.get("/api/blog", function(req, res){
       res.json({message: posts});
     }
   });
+});
+
+app.get("/genhash", function(req, res){
+  bcrypt.hash(req.body.password, 10, function(err, hash){
+    console.log("req body password: ", req.body.password)
+    console.log("hash: ", hash)
+  })
 });
 
 app.get("/api/blog/:slug", function(req, res){
