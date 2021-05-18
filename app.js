@@ -66,7 +66,7 @@ passport.use(new LocalStrategy({
       // if user doesn't exist
       if (!user) { return done(null, false, { message: 'User not found.' }); }
 
-      bcrypt.compare(password, user.password, function(err, resp){
+      bcrypt.compare(password, user.password, function(err, result){
           if (result === true) {
             return done(null, user);
           } else {
