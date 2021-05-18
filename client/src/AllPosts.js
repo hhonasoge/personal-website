@@ -8,12 +8,12 @@ function AllPosts(props) {
   const [data, setData] = useState()
 
   React.useEffect(() => {
-    fetch("/blog")
+    fetch("/api/blog")
     .then((res) => res.json())
     .then((data) => setData(data.message))
     .catch(console.error);
   }, []);
-  
+
   return (
       <div>
         {(data) ? data.map((post) => (

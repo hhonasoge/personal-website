@@ -84,7 +84,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-app.get("/blog", function(req, res){
+app.get("/api/blog", function(req, res){
   Post.find({}, function(err, posts){
     if (err) {
       console.log(err)
@@ -94,7 +94,7 @@ app.get("/blog", function(req, res){
   });
 });
 
-app.get("/blog/:slug", function(req, res){
+app.get("/api/blog/:slug", function(req, res){
   const requestedPostId = req.params.slug;
   Post.findOne({_id: requestedPostId}, function(err, post){
     if (!err) {
@@ -105,7 +105,7 @@ app.get("/blog/:slug", function(req, res){
   });
 });
 
-app.post("/login", function(req, res){
+app.post("/api/login", function(req, res){
   const user = new User({
     email: req.body.email,
     password: req.body.password
@@ -123,7 +123,7 @@ app.post("/login", function(req, res){
 
 });
 
-app.post("/compose", function(req, res){
+app.post("/api/compose", function(req, res){
   if (!req.isAuthenticated()){
     res.send(400).end()
     return
@@ -147,7 +147,7 @@ app.post("/compose", function(req, res){
 
 })
 
-app.get("/auth", function(req, res){
+app.get("/api/auth", function(req, res){
   if (req.isAuthenticated()) {
     res.json({"isauthed": true})
   } else {

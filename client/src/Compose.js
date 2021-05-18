@@ -11,7 +11,7 @@ function MyEditor(props) {
   const [description, setDescription] = useState("")
 
   useEffect(() => {
-    fetch("/auth").then((res) => res.json())
+    fetch("/api/auth").then((res) => res.json())
     .then((data) => setData(data))
     .catch(console.error);
   }, []);
@@ -40,7 +40,7 @@ function MyEditor(props) {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body)
     }
-    fetch("/compose", reqOps).then(res => res.json()).then(res => {
+    fetch("/api/compose", reqOps).then(res => res.json()).then(res => {
       if (res.message==="ok"){
         alert("Successfully published post!")
       } else {
@@ -50,7 +50,7 @@ function MyEditor(props) {
     }).then(res => {
       if (res.message==="ok"){
         setEditorState(EditorState.createEmpty());
-        window.location = '/blog'
+        window.location = '/api/blog'
       }
     })
   }
@@ -85,7 +85,7 @@ function MyEditor(props) {
           <button className="text-black m-auto rounded-full p-2 bg-blue-200 hover:bg-blue-300 mb-2" type="submit" name="button" onClick={handleSubmit}>Publish</button>
         </div>
       </div>
-     : <p className="text-center">Please <a href="/login" style={{textDecoration: "underline"}}>log in</a> to compose a blog post</p>)
+     : <p className="text-center">Please <a href="/api/login" style={{textDecoration: "underline"}}>log in</a> to compose a blog post</p>)
 }
 
 

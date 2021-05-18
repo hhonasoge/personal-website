@@ -12,7 +12,7 @@ function BlogFull(props) {
   const [editorState, setEditorState] = useState(() => EditorState.createEmpty())
 
   useEffect(() => {
-    fetch("/blog/"+slug).then((res) => res.json())
+    fetch("/api/blog/"+slug).then((res) => res.json())
     .then(function(data){
       setTitle(data.post.title);
       setDescription(data.post.description);
