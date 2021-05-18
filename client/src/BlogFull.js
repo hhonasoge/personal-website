@@ -25,7 +25,7 @@ function BlogFull(props) {
 
   return (
     <div>
-    {(title !== "") ? <div>
+    {(title !== "") ? <div className="m-10 md:m-auto">
       <h1 className="font-roboto-slab">{title}</h1>
       <p className="mb-2">{(createdAt) && new Date(createdAt).toLocaleDateString()}</p>
       <p className="pb-4 italic">{description}</p>
