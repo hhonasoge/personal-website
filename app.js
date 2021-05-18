@@ -24,7 +24,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/blogDB", {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect("mongodb+srv://admin-harsha:"+process.env.DB_PASSWORD+"@cluster0.svuwl.mongodb.net/blogDB?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
 const postSchema = {
