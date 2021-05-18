@@ -30,7 +30,7 @@ function BlogFull(props) {
       <p className="mb-2">{(createdAt) && new Date(createdAt).toLocaleDateString()}</p>
       <p className="pb-4 italic">{description}</p>
       <Editor editorState={editorState} readOnly toolbarHidden />
-      </div> : <h3>"Loading post..."</h3>}
+      </div> : <h3 className="m-10 md:m-auto">Loading post...</h3>}
     </div>
   )
 }

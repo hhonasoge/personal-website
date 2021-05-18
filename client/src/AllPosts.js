@@ -27,7 +27,7 @@ function AllPosts(props) {
               createdAt={new Date(post.createdAt).toLocaleDateString()}
               body={post.body} />
             </div>
-        )) : "Loading blog posts..."}
+        )) : <h3 className="m-10 md:m-auto">Loading blog posts...</h3>}
       </div>
     )
 }
