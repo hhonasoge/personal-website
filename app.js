@@ -55,7 +55,6 @@ passport.use(new LocalStrategy({
     },
   // function of username, password, done(callback)
   function(email, password, done) {
-    console.log("getting to local strategy")
     // look for the user data
     User.findOne({ email: email }, function (err, user) {
       // if there is an error
