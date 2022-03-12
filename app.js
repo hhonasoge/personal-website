@@ -103,7 +103,7 @@ app.get("/api/blog", function (req, res) {
     } else {
       res.json({ message: posts });
     }
-  });
+  }).sort({ createdAt: -1 });
 });
 
 app.get("/api/blog/:slug", function (req, res) {
